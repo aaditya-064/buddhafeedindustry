@@ -22,7 +22,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -36,7 +36,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md"
+          ? "bg-white/95 backdrop-blur-md shadow-sm"
           : "bg-white/80 backdrop-blur-sm"
       }`}
     >
@@ -54,10 +54,10 @@ export default function Navbar() {
               </svg>
             </div>
             <div className="hidden sm:block">
-              <p className="text-sm lg:text-base font-semibold text-brand-800 leading-tight font-[family-name:var(--font-heading)]">
+              <p className="text-sm lg:text-base font-semibold text-charcoal-800 leading-tight font-[family-name:var(--font-heading)]">
                 {company.name}
               </p>
-              <p className="text-xs text-gray-500">{t.nav.home === "Home" ? "Animal Feed Manufacturing" : "पशु आहार उत्पादन"}</p>
+              <p className="text-xs text-charcoal-500">{t.nav.home === "Home" ? "Animal Feed Manufacturing" : "पशु आहार उत्पादन"}</p>
             </div>
           </Link>
 
@@ -69,8 +69,8 @@ export default function Navbar() {
                 to={link.path}
                 className={`px-3 xl:px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                   location.pathname === link.path
-                    ? "text-brand-700 bg-brand-50"
-                    : "text-gray-700 hover:text-brand-600 hover:bg-brand-50/50"
+                    ? "text-brand-600 bg-brand-50"
+                    : "text-charcoal-700 hover:text-brand-600 hover:bg-warm-100"
                 }`}
               >
                 {t.nav[link.key]}
@@ -90,7 +90,7 @@ export default function Navbar() {
             </a>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 transition-colors"
+              className="lg:hidden p-2 rounded-md text-charcoal-700 hover:bg-warm-100 transition-colors"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
             >
@@ -106,15 +106,15 @@ export default function Navbar() {
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-white border-t border-gray-100 px-4 py-3 space-y-1">
+        <div className="bg-white border-t border-charcoal-100 px-4 py-3 space-y-1">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                 location.pathname === link.path
-                  ? "text-brand-700 bg-brand-50"
-                  : "text-gray-700 hover:text-brand-600 hover:bg-gray-50"
+                  ? "text-brand-600 bg-brand-50"
+                  : "text-charcoal-700 hover:text-brand-600 hover:bg-warm-100"
               }`}
             >
               {t.nav[link.key]}

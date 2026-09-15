@@ -10,50 +10,28 @@ export default function ProductCard({ index }: ProductCardProps) {
   const product = company.products[index];
   const displayName = lang === "ne" ? product.nameNe : product.name;
 
-  const colors = [
-    "from-brand-600 to-brand-800",
-    "from-brand-500 to-brand-700",
-    "from-brand-700 to-brand-900",
-    "from-brand-600 to-brand-800",
-  ];
-
   return (
-    <div className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
-      {/* Product Image Placeholder */}
-      <div className={`h-48 sm:h-56 bg-gradient-to-br ${colors[index]} relative overflow-hidden`}>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-20 h-20 mx-auto rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
-              <span className="text-3xl font-bold text-white font-[family-name:var(--font-heading)]">
-                {displayName.charAt(0)}
-              </span>
-            </div>
-          </div>
-        </div>
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id={`pattern-${index}`} x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <circle cx="20" cy="20" r="1" fill="white" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill={`url(#pattern-${index})`} />
-          </svg>
-        </div>
+    <div className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+      {/* Product Image */}
+      <div className="aspect-[4/3] overflow-hidden bg-warm-200">
+        <img
+          src={product.fallback}
+          alt={displayName}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
       </div>
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 font-[family-name:var(--font-heading)]">
+        <h3 className="text-xl font-bold text-charcoal-800 font-[family-name:var(--font-heading)]">
           {displayName}
         </h3>
-        <p className="mt-2 text-sm text-gray-500">
+        <p className="mt-2 text-sm text-charcoal-500">
           {lang === "ne" ? "पशु आहार" : "Animal Feed Product"}
         </p>
         <div className="mt-4 flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-brand-500"></div>
-          <span className="text-xs text-gray-400 uppercase tracking-wider">
+          <span className="text-xs text-charcoal-400 uppercase tracking-wider">
             {lang === "ne" ? "गुणस्तरीय" : "Quality"}
           </span>
         </div>

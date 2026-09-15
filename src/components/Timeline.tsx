@@ -18,7 +18,7 @@ export default function Timeline() {
   return (
     <div className="relative">
       {/* Vertical line */}
-      <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-300 via-brand-400 to-brand-300 sm:-translate-x-0.5"></div>
+      <div className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-0.5 bg-charcoal-200 sm:-translate-x-0.5"></div>
 
       <div className="space-y-10 sm:space-y-12">
         {milestones.map((milestone, index) => (
@@ -33,11 +33,11 @@ export default function Timeline() {
 
             {/* Content */}
             <div className={`ml-12 sm:ml-0 sm:w-1/2 ${index % 2 === 0 ? "sm:pr-12 sm:text-right" : "sm:pl-12"}`}>
-              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
-                <span className="inline-block px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-sm font-semibold mb-3">
+              <div className="bg-white rounded-lg p-6 shadow-md border border-warm-200">
+                <span className="inline-block px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-sm font-semibold mb-3">
                   {milestone.year}
                 </span>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-charcoal-700 leading-relaxed">
                   {milestone.text}
                 </p>
               </div>

@@ -1,6 +1,7 @@
 import { Calendar, Factory, MapPin, Target, Heart, Shield } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { company } from "../lib/company";
+import { images } from "../lib/images";
 import SectionHeading from "../components/SectionHeading";
 import DirectorCard from "../components/DirectorCard";
 
@@ -33,52 +34,70 @@ export default function About() {
 
   return (
     <main className="pt-20">
-      {/* Page Header */}
-      <section className="py-12 lg:py-16 bg-gradient-to-br from-brand-800 to-brand-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-heading)]">
-            {t.nav.about}
-          </h1>
-          <div className="mt-4 w-16 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto"></div>
+      {/* Hero Image */}
+      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+        <img
+          src={images.placeholders.factory}
+          alt="Company facility"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
+        <div className="absolute inset-0 flex items-center justify-center text-center">
+          <div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-[family-name:var(--font-heading)] mb-4">
+              {t.nav.about}
+            </h1>
+            <p className="text-lg text-white/90 max-w-2xl mx-auto">
+              {lang === "ne" 
+                ? "२०५८ बि.सं. देखि नेपालको कृषि क्षेत्रमा"
+                : "Serving Nepal's agricultural sector since 2058 BS"}
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Company Introduction */}
-      <section className="py-16 lg:py-24 bg-warm-50">
+      {/* Company Introduction - Split Layout */}
+      <section className="py-20 lg:py-32 bg-warm-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
-              <SectionHeading
-                heading={lang === "ne" ? company.nameNe : company.name}
-                centered={false}
-              />
-              <p className="text-gray-700 leading-relaxed text-base lg:text-lg">
-                {t.aboutPreview.description}
+              <p className="text-brand-600 text-sm uppercase tracking-widest mb-4 font-semibold">
+                {lang === "ne" ? "हाम्रो कथा" : "Our Story"}
               </p>
-              <p className="text-gray-600 leading-relaxed mt-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-heading)] text-charcoal-800 leading-tight mb-6">
+                {lang === "ne" ? company.nameNe : company.name}
+              </h2>
+              <div className="w-20 h-1 bg-brand-600 mb-8"></div>
+              <p className="text-lg text-charcoal-600 leading-relaxed mb-6">
                 {lang === "ne"
-                  ? "हाम्रो यात्रा २०५८ बि.सं. मा सुरु भयो र २०७२ बि.सं. मा हाम्रो उत्पादन प्लान्ट स्थापनासँगै अर्को महत्त्वपूर्ण मोडमा पुग्यो। आज, हामी नेपालका किसान र पशुपालकहरूलाई सेवा प्रदान गर्न समर्पित छौं।"
-                  : "Our journey began in 2058 BS and reached a significant milestone with the establishment of our production plant in 2072 BS. Today, we remain dedicated to serving farmers and livestock owners across Nepal."}
+                  ? "बुद्ध दान उद्योग प्रा. लि. नेपालको एक प्रतिष्ठित पशु आहार उत्पादन कम्पनी हो। २०५८ बि.सं. मा स्थापित, हामी गुणस्तरीय आहार उत्पादनमा समर्पित छौं।"
+                  : "Buddha Dana Udhyog Pvt. Ltd. is a distinguished animal feed manufacturing company in Nepal. Established in 2058 BS, we are dedicated to producing quality feed for livestock and poultry across the nation."}
+              </p>
+              <p className="text-charcoal-600 leading-relaxed">
+                {lang === "ne"
+                  ? "२०७२ बि.सं. मा हाम्रो आधुनिक उत्पादन प्लान्ट स्थापनासँगै, हामीले नेपालका किसानहरूलाई भरपर्दो आहार प्रदान गर्ने आफ्नो क्षमता विस्तार गर्यौं।"
+                  : "With the establishment of our modern production plant in 2072 BS, we expanded our ability to serve farmers with dependable feed solutions."}
               </p>
             </div>
+
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center">
+              <div className="bg-white rounded-lg p-6 shadow-md text-center">
                 <Calendar className="w-10 h-10 text-brand-600 mx-auto mb-3" />
-                <p className="text-2xl font-bold text-brand-700 font-[family-name:var(--font-heading)]">
-                  {lang === "ne" ? company.foundedNe : company.founded}
+                <p className="text-2xl font-bold text-brand-600 font-[family-name:var(--font-heading)]">
+                  {lang === "ne" ? "२०५८" : "2058"}
                 </p>
-                <p className="text-sm text-gray-500 mt-1">{t.aboutPreview.foundedLabel}</p>
+                <p className="text-sm text-charcoal-500 mt-1">{t.aboutPreview.foundedLabel}</p>
               </div>
-              <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center">
+              <div className="bg-white rounded-lg p-6 shadow-md text-center">
                 <Factory className="w-10 h-10 text-brand-600 mx-auto mb-3" />
-                <p className="text-2xl font-bold text-brand-700 font-[family-name:var(--font-heading)]">
-                  {lang === "ne" ? company.plantEstablishedNe : company.plantEstablished}
+                <p className="text-2xl font-bold text-brand-600 font-[family-name:var(--font-heading)]">
+                  {lang === "ne" ? "२०७२" : "2072"}
                 </p>
-                <p className="text-sm text-gray-500 mt-1">{t.aboutPreview.plantLabel}</p>
+                <p className="text-sm text-charcoal-500 mt-1">{t.aboutPreview.plantLabel}</p>
               </div>
-              <div className="col-span-2 bg-white rounded-xl p-6 shadow-md border border-gray-100 text-center">
+              <div className="col-span-2 bg-white rounded-lg p-6 shadow-md text-center">
                 <MapPin className="w-10 h-10 text-brand-600 mx-auto mb-3" />
-                <p className="text-lg font-semibold text-gray-800">
+                <p className="text-lg font-semibold text-charcoal-800">
                   {lang === "ne" ? company.locationNe : company.location}
                 </p>
               </div>
@@ -87,8 +106,32 @@ export default function About() {
         </div>
       </section>
 
+      {/* Large Image Break */}
+      <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
+        <img
+          src={images.placeholders.factoryInterior}
+          alt="Production facility interior"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="max-w-xl text-white">
+              <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] mb-4">
+                {lang === "ne" ? "आधुनिक उत्पादन सुविधा" : "Modern Production Facility"}
+              </h2>
+              <p className="text-lg opacity-90">
+                {lang === "ne"
+                  ? "हाम्रो प्लान्ट गुणस्तरीय आहार उत्पादनको लागि डिजाइन गरिएको छ।"
+                  : "Our plant is designed for quality feed production."}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Values */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-20 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             heading={lang === "ne" ? "हाम्रा मूल्यहरू" : "Our Values"}
@@ -96,12 +139,12 @@ export default function About() {
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {values.map((value, index) => (
-              <div key={index} className="text-center p-6 rounded-xl bg-warm-50 border border-gray-100">
-                <div className="w-14 h-14 rounded-full bg-brand-50 flex items-center justify-center mx-auto mb-4">
-                  <value.icon className="w-7 h-7 text-brand-600" />
+              <div key={index} className="text-center p-8 rounded-lg bg-warm-50 border border-warm-200">
+                <div className="w-16 h-16 rounded-full bg-brand-50 flex items-center justify-center mx-auto mb-4">
+                  <value.icon className="w-8 h-8 text-brand-600" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{value.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-semibold text-charcoal-800 mb-3">{value.title}</h3>
+                <p className="text-charcoal-600 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -109,10 +152,10 @@ export default function About() {
       </section>
 
       {/* Leadership */}
-      <section className="py-16 lg:py-24 bg-warm-50">
+      <section className="py-20 lg:py-32 bg-warm-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading heading={t.leadership.heading} subtitle={t.leadership.subtitle} />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto">
             {company.directors.map((_, index) => (
               <DirectorCard key={index} index={index} />
             ))}
@@ -120,18 +163,24 @@ export default function About() {
         </div>
       </section>
 
-      {/* Visual Identity */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-brand-800 to-brand-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Identity Section */}
+      <section className="relative py-20 lg:py-32 overflow-hidden">
+        <img
+          src={images.placeholders.landscape}
+          alt="Nepalese landscape"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-charcoal-900/80"></div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <SectionHeading
             heading={lang === "ne" ? "हाम्रो पहिचान" : "Our Identity"}
             subtitle={lang === "ne" ? "बुद्धको नामबाट प्रेरित, नेपालको मुटुबाट" : "Inspired by the name of Buddha, from the heart of Nepal"}
             light
           />
-          <p className="text-brand-100 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg text-charcoal-200 leading-relaxed max-w-2xl mx-auto">
             {lang === "ne"
-              ? "हाम्रो कम्पनीको नाम 'बुद्ध' ले शान्ति, विश्वास र इमान्डारिताका मूल्यहरूलाई प्रतिबिम्बित गर्दछ। यी मूल्यहरू हाम्रो व्यवसायको हरेक पक्षमा मार्गदर्शन गर्छन् — गुणस्तरीय आहार उत्पादनदेखि हाम्रा ग्राहकहरूसँगको सम्बन्धसम्म।"
-              : "Our company's name 'Buddha' reflects the values of peace, trust, and integrity. These values guide every aspect of our business — from producing quality feed to our relationships with customers."}
+              ? "हाम्रो कम्पनीको नाम 'बुद्ध' ले शान्ति, विश्वास र इमान्डारिताका मूल्यहरूलाई प्रतिबिम्बित गर्दछ। यी मूल्यहरू हाम्रो व्यवसायको हरेक पक्षमा मार्गदर्शन गर्छन्।"
+              : "Our company's name 'Buddha' reflects the values of peace, trust, and integrity. These values guide every aspect of our business."}
           </p>
         </div>
       </section>

@@ -11,10 +11,10 @@ export default function NotFound() {
         <div className="w-24 h-24 rounded-full bg-brand-50 flex items-center justify-center mx-auto mb-6">
           <span className="text-4xl font-bold text-brand-600 font-[family-name:var(--font-heading)]">404</span>
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 font-[family-name:var(--font-heading)]">
+        <h1 className="text-3xl font-bold text-charcoal-800 font-[family-name:var(--font-heading)]">
           {t.notFound.title}
         </h1>
-        <p className="mt-4 text-gray-600 max-w-md mx-auto">
+        <p className="mt-4 text-charcoal-600 max-w-md mx-auto">
           {t.notFound.description}
         </p>
         <Link

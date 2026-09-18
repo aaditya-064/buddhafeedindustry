@@ -12,43 +12,46 @@ export default function About() {
     {
       icon: Target,
       title: lang === "ne" ? "प्रतिबद्धता" : "Commitment",
-      description: lang === "ne"
-        ? "गुणस्तरीय पशु आहार उत्पादनप्रति हाम्रो प्रतिबद्धता अटल छ।"
-        : "Our commitment to producing quality animal feed remains unwavering.",
+      description:
+        lang === "ne"
+          ? "गुणस्तरीय पशु आहार उत्पादनप्रति हाम्रो प्रतिबद्धता अटल छ।"
+          : "Our commitment to producing quality animal feed remains unwavering.",
     },
     {
       icon: Heart,
       title: lang === "ne" ? "विश्वास" : "Trust",
-      description: lang === "ne"
-        ? "हामी हाम्रा ग्राहकहरूसँग दीर्घकालीन सम्बन्ध बनाउँछौं।"
-        : "We build lasting relationships with our customers through consistent quality.",
+      description:
+        lang === "ne"
+          ? "हामी हाम्रा ग्राहकहरूसँग दीर्घकालीन सम्बन्ध बनाउँछौं।"
+          : "We build lasting relationships with our customers through consistent quality.",
     },
     {
       icon: Shield,
       title: lang === "ne" ? "इमान्डारिता" : "Integrity",
-      description: lang === "ne"
-        ? "हाम्रो व्यवसाय इमान्डारिता र पारदर्शितामा आधारित छ।"
-        : "Our business is built on honesty and transparency in all dealings.",
+      description:
+        lang === "ne"
+          ? "हाम्रो व्यवसाय इमान्डारिता र पारदर्शितामा आधारित छ।"
+          : "Our business is built on honesty and transparency in all dealings.",
     },
   ];
 
   return (
     <main className="pt-20">
       {/* Hero Image */}
-      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+      <section className="relative h-[50vh] min-h-100 overflow-hidden">
         <img
           src={images.placeholders.factory}
           alt="Company facility"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/30 to-black/60"></div>
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-[family-name:var(--font-heading)] mb-4">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-heading mb-4">
               {t.nav.about}
             </h1>
             <p className="text-lg text-white/90 max-w-2xl mx-auto">
-              {lang === "ne" 
+              {lang === "ne"
                 ? "२०५८ बि.सं. देखि नेपालको कृषि क्षेत्रमा"
                 : "Serving Nepal's agricultural sector since 2058 BS"}
             </p>
@@ -64,7 +67,7 @@ export default function About() {
               <p className="text-brand-600 text-sm uppercase tracking-widest mb-4 font-semibold">
                 {lang === "ne" ? "हाम्रो कथा" : "Our Story"}
               </p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-heading)] text-charcoal-800 leading-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-charcoal-800 leading-tight mb-6">
                 {lang === "ne" ? company.nameNe : company.name}
               </h2>
               <div className="w-20 h-1 bg-brand-600 mb-8"></div>
@@ -83,17 +86,21 @@ export default function About() {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white rounded-lg p-6 shadow-md text-center">
                 <Calendar className="w-10 h-10 text-brand-600 mx-auto mb-3" />
-                <p className="text-2xl font-bold text-brand-600 font-[family-name:var(--font-heading)]">
+                <p className="text-2xl font-bold text-brand-600 font-heading">
                   {lang === "ne" ? "२०५८" : "2058"}
                 </p>
-                <p className="text-sm text-charcoal-500 mt-1">{t.aboutPreview.foundedLabel}</p>
+                <p className="text-sm text-charcoal-500 mt-1">
+                  {t.aboutPreview.foundedLabel}
+                </p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-md text-center">
                 <Factory className="w-10 h-10 text-brand-600 mx-auto mb-3" />
-                <p className="text-2xl font-bold text-brand-600 font-[family-name:var(--font-heading)]">
+                <p className="text-2xl font-bold text-brand-600 font-heading">
                   {lang === "ne" ? "२०७२" : "2072"}
                 </p>
-                <p className="text-sm text-charcoal-500 mt-1">{t.aboutPreview.plantLabel}</p>
+                <p className="text-sm text-charcoal-500 mt-1">
+                  {t.aboutPreview.plantLabel}
+                </p>
               </div>
               <div className="col-span-2 bg-white rounded-lg p-6 shadow-md text-center">
                 <MapPin className="w-10 h-10 text-brand-600 mx-auto mb-3" />
@@ -107,18 +114,20 @@ export default function About() {
       </section>
 
       {/* Large Image Break */}
-      <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
+      <section className="relative h-[60vh] min-h-100 overflow-hidden">
         <img
           src={images.placeholders.factoryInterior}
           alt="Production facility interior"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-black/60 via-transparent to-transparent"></div>
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-xl text-white">
-              <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] mb-4">
-                {lang === "ne" ? "आधुनिक उत्पादन सुविधा" : "Modern Production Facility"}
+              <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-4">
+                {lang === "ne"
+                  ? "आधुनिक उत्पादन सुविधा"
+                  : "Modern Production Facility"}
               </h2>
               <p className="text-lg opacity-90">
                 {lang === "ne"
@@ -135,16 +144,27 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             heading={lang === "ne" ? "हाम्रा मूल्यहरू" : "Our Values"}
-            subtitle={lang === "ne" ? "हामीलाई चलाउने सिद्धान्तहरू" : "The principles that guide us"}
+            subtitle={
+              lang === "ne"
+                ? "हामीलाई चलाउने सिद्धान्तहरू"
+                : "The principles that guide us"
+            }
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {values.map((value, index) => (
-              <div key={index} className="text-center p-8 rounded-lg bg-warm-50 border border-warm-200">
+              <div
+                key={index}
+                className="text-center p-8 rounded-lg bg-warm-50 border border-warm-200"
+              >
                 <div className="w-16 h-16 rounded-full bg-brand-50 flex items-center justify-center mx-auto mb-4">
                   <value.icon className="w-8 h-8 text-brand-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-charcoal-800 mb-3">{value.title}</h3>
-                <p className="text-charcoal-600 leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-semibold text-charcoal-800 mb-3">
+                  {value.title}
+                </h3>
+                <p className="text-charcoal-600 leading-relaxed">
+                  {value.description}
+                </p>
               </div>
             ))}
           </div>
@@ -154,7 +174,10 @@ export default function About() {
       {/* Leadership */}
       <section className="py-20 lg:py-32 bg-warm-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading heading={t.leadership.heading} subtitle={t.leadership.subtitle} />
+          <SectionHeading
+            heading={t.leadership.heading}
+            subtitle={t.leadership.subtitle}
+          />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto">
             {company.directors.map((_, index) => (
               <DirectorCard key={index} index={index} />
@@ -174,7 +197,11 @@ export default function About() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <SectionHeading
             heading={lang === "ne" ? "हाम्रो पहिचान" : "Our Identity"}
-            subtitle={lang === "ne" ? "बुद्धको नामबाट प्रेरित, नेपालको मुटुबाट" : "Inspired by the name of Buddha, from the heart of Nepal"}
+            subtitle={
+              lang === "ne"
+                ? "बुद्धको नामबाट प्रेरित, नेपालको मुटुबाट"
+                : "Inspired by the name of Buddha, from the heart of Nepal"
+            }
             light
           />
           <p className="text-lg text-charcoal-200 leading-relaxed max-w-2xl mx-auto">

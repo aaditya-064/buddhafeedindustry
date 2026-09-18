@@ -10,16 +10,16 @@ export default function Contact() {
   return (
     <main className="pt-20">
       {/* Hero Image */}
-      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+      <section className="relative h-[50vh] min-h-100 overflow-hidden">
         <img
           src={images.placeholders.landscape}
           alt="Nepalese landscape"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/30 to-black/60"></div>
         <div className="absolute inset-0 flex items-center justify-center text-center">
           <div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-[family-name:var(--font-heading)] mb-4">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-heading mb-4">
               {t.nav.contact}
             </h1>
             <p className="text-lg text-white/90 max-w-2xl mx-auto">
@@ -35,35 +35,43 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Contact Details */}
             <div>
-              <SectionHeading
-                heading={t.contact.heading}
-                centered={false}
-              />
-              
+              <SectionHeading heading={t.contact.heading} centered={false} />
+
               <div className="space-y-6">
                 {/* Company Name */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0">
-                    <svg viewBox="0 0 40 40" className="w-6 h-6 text-brand-600" fill="currentColor">
+                  <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center shrink-0">
+                    <svg
+                      viewBox="0 0 40 40"
+                      className="w-6 h-6 text-brand-600"
+                      fill="currentColor"
+                    >
                       <circle cx="20" cy="14" r="6" opacity="0.9" />
-                      <path d="M20 22 C14 22 10 28 10 34 L30 34 C30 28 26 22 20 22Z" opacity="0.7" />
+                      <path
+                        d="M20 22 C14 22 10 28 10 34 L30 34 C30 28 26 22 20 22Z"
+                        opacity="0.7"
+                      />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-semibold text-charcoal-800">
                       {lang === "ne" ? company.nameNe : company.name}
                     </h3>
-                    <p className="text-sm text-charcoal-500 mt-0.5">{company.industry}</p>
+                    <p className="text-sm text-charcoal-500 mt-0.5">
+                      {company.industry}
+                    </p>
                   </div>
                 </div>
 
                 {/* Address */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center shrink-0">
                     <MapPin className="w-6 h-6 text-brand-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-charcoal-800">{t.footer.location}</h3>
+                    <h3 className="font-semibold text-charcoal-800">
+                      {t.footer.location}
+                    </h3>
                     <p className="text-charcoal-600 mt-0.5">
                       {lang === "ne" ? company.locationNe : company.location}
                     </p>
@@ -72,7 +80,7 @@ export default function Contact() {
 
                 {/* Phone */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center shrink-0">
                     <Phone className="w-6 h-6 text-brand-600" />
                   </div>
                   <div>
@@ -95,7 +103,7 @@ export default function Contact() {
 
                 {/* Email */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center shrink-0">
                     <Mail className="w-6 h-6 text-brand-600" />
                   </div>
                   <div>
@@ -113,21 +121,25 @@ export default function Contact() {
 
                 {/* Business Hours */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-brand-50 flex items-center justify-center shrink-0">
                     <Clock className="w-6 h-6 text-brand-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-charcoal-800">{t.contact.hours}</h3>
-                    <p className="text-charcoal-600 mt-0.5">{t.contact.hoursText}</p>
+                    <h3 className="font-semibold text-charcoal-800">
+                      {t.contact.hours}
+                    </h3>
+                    <p className="text-charcoal-600 mt-0.5">
+                      {t.contact.hoursText}
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col justify-center">
+            <div className="flex col justify-center">
               <div className="bg-white rounded-lg p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-charcoal-800 font-[family-name:var(--font-heading)] mb-6 text-center">
+                <h3 className="text-2xl font-bold text-charcoal-800 font-heading mb-6 text-center">
                   {lang === "ne" ? "सम्पर्क गर्नुहोस्" : "Reach Out to Us"}
                 </h3>
                 <div className="space-y-4">
@@ -138,7 +150,9 @@ export default function Contact() {
                       className="flex items-center justify-center gap-3 w-full px-6 py-4 bg-brand-600 text-white rounded-lg font-semibold hover:bg-brand-700 transition-colors shadow-md"
                     >
                       <Phone className="w-5 h-5" />
-                      <span>{t.contact.call}: {phone}</span>
+                      <span>
+                        {t.contact.call}: {phone}
+                      </span>
                     </a>
                   ))}
                   <a
@@ -165,17 +179,17 @@ export default function Contact() {
       </section>
 
       {/* Large Location Image */}
-      <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
+      <section className="relative h-[60vh] min-h-100 overflow-hidden">
         <img
           src={images.placeholders.factory}
           alt="Company location"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/40 to-transparent"></div>
         <div className="absolute inset-0 flex items-end">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-12">
             <div className="text-white">
-              <h2 className="text-3xl sm:text-4xl font-bold font-[family-name:var(--font-heading)] mb-2">
+              <h2 className="text-3xl sm:text-4xl font-bold font-heading mb-2">
                 {lang === "ne" ? "हामीलाई भेट्नुहोस्" : "Visit Us"}
               </h2>
               <p className="text-lg opacity-90 mb-4">{company.location}</p>
